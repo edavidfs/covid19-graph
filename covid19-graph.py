@@ -5,11 +5,15 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 import pycountry
+import pathlib
 from matplotlib.animation import FuncAnimation
 from matplotlib.ticker import ScalarFormatter, LogFormatter, MultipleLocator
 from unicodedata import normalize
 from datetime import datetime
 from time import sleep
+
+CURRENT_PATH = pathlib.Path(__file__).parent.absolute()
+print(f'Current path {CURRENT_PATH}')
 
 def data_for_country(country):
     data = pd.DataFrame()
@@ -185,7 +189,7 @@ for country_df in data:
     
     filename = titles[pais_id].replace('ñ','n')
     fig.tight_layout()
-    fig.savefig(f'{filename}-test.png')
+    fig.savefig(f'{CURRENT_PATH/filename}-test.png')
     pais_id +=1
 
 
@@ -222,7 +226,7 @@ for estado in estados:
     ax.legend(loc='best')
     ax.grid()    
     
-    fig.savefig(f'comparativa_{str(estado)}.png')
+    fig.savefig(f'{CURRENT_PATH}/comparativa_{str(estado)}.png')
 
 
 ## ANIMACION CONFIRMADOS
@@ -308,10 +312,12 @@ def frame_generator():
             for _ in range(HOLD_COUNT):
                 yield frame
 
-#anim = FuncAnimation(fig, update, init_func=init, frames=np.arange(0, spain_df.count()['Confirmados']-1), interval=200, repeat=True, repeat_delay = 3000)
-anim = FuncAnimation(fig, update, init_func=init, frames=frame_generator, interval=150,blit=True)
-anim.save("Evolucion_confirmados.gif", writer = 'imagemagick')
-
+try:
+    anim = FuncAnimation(fig, update, init_func=init, frames=frame_generator, interval=150)
+    anim.save(f"{CURRENT_PATH}/Evolucion_confirmados.gif", writer = 'imagemagick')
+except:
+    print("ERROR Generando evolucion de Confirmados")
+      
 ## Animacion muertes
 
 fig = plt.figure(figsize=(6,10), dpi=100)
@@ -390,14 +396,16 @@ def frame_generator():
         if frame == spain_df.count()['Confirmados']-1:
             for _ in range(HOLD_COUNT):
                 yield frame
-
-anim = FuncAnimation(fig, update, init_func=init, frames=frame_generator, interval=150,blit=True)
-anim.save("Evolucion_fallecidos.gif", writer = 'imagemagick')
+try:
+    anim = FuncAnimation(fig, update, init_func=init, frames=frame_generator, interval=150)
+    anim.save(f"{CURRENT_PATH}/Evolucion_fallecidos.gif", writer = 'imagemagick')
+except:
+    print("ERROR Generando evolucion de fallecidos")
 
 
 ## Actualizacion Repositorio
 
-repo = git.Repo('.')
+repo = git.Repo(f"{CURRENT_PATH}")
 print(repo.is_dirty())  # check the dirty state
 repo.untracked_files
 #print(len(repo.remotes))
