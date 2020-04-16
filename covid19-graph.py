@@ -405,7 +405,7 @@ except:
 
 ## Actualizacion Repositorio
 
-repo = git.Repo(f"{CURRENT_PATH}")
+repo = git.Repo(f"{CURRENT_PATH}/")
 print(repo.is_dirty())  # check the dirty state
 repo.untracked_files
 #print(len(repo.remotes))
