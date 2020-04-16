@@ -283,7 +283,7 @@ def init():
     return espana_plot,china_plot,italia_plot, eeuu_plot
 
 def update(i):
-    print(f'timestep {i}')
+    #print(f'timestep {i}')
 
     xdata.append(x[i]) 
     espana_ydata.append(espana_y[i]) 
@@ -313,7 +313,6 @@ anim = FuncAnimation(fig, update, init_func=init, frames=frame_generator, interv
 anim.save("Evolucion_confirmados.gif", writer = 'imagemagick')
 
 ## Animacion muertes
-
 
 fig = plt.figure(figsize=(6,10), dpi=100)
 ax = plt.axes(xlim=(spain_df['Muertos'].index[0], spain_df['Muertos'].index[-1]), ylim=(1, max_y))
@@ -368,7 +367,7 @@ def init():
     return espana_plot,china_plot,italia_plot, eeuu_plot
 
 def update(i):
-    print(f'timestep {i}')
+    #print(f'timestep {i}')
     xdata.append(x[i]) 
     espana_ydata.append(espana_y[i]) 
     china_ydata.append(china_y[i]) 
