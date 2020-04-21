@@ -427,7 +427,7 @@ if len(files)>1:
         print(repo.heads.master)
         print(repo.remotes.origin.url)
 
-    #    os.system('git push origin master')
+        os.system(f'cd {CURRENT_PATH}')
         print(subprocess.run(["git", "push", 'origin', 'master'], capture_output=True))
 
     #    repo.remotes.origin.push(f'{repo.heads.master}')
