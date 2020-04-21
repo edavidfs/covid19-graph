@@ -427,11 +427,11 @@ if len(files)>1:
         repo.git.commit('-m', commit_message)
         print(repo.heads.master)
         print(repo.remotes.origin.url)
-        print(subprocess.run(['pwd'], capture_output=True))
-        print(subprocess.run(['cd', CURRENT_PATH,'/'], capture_output=True))
-        print(subprocess.run(['pwd'], capture_output=True))
-        print(subprocess.run(['ls'], capture_output=True))
-        print(subprocess.run(["git", "push", 'origin', 'master'], capture_output=True))
+#        print(subprocess.run(['pwd'], capture_output=True))
+#        print(subprocess.run(['cd', CURRENT_PATH,'/'], capture_output=True))
+#        print(subprocess.run(['pwd'], capture_output=True))
+#        print(subprocess.run(['ls'], capture_output=True))
+        print(subprocess.run(["git","-C",CURRENT_PATH, "push", 'origin', 'master'], capture_output=True))
 
     #    repo.remotes.origin.push(f'{repo.heads.master}')
     #    ssh_cmd = 'ssh -i id_rsa'
