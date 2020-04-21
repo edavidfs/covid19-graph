@@ -419,23 +419,23 @@ if files:
     for f in files.split('\n'):
         print(f)
         repo.git.add(f)
-    
-commit_message = f'Actualizacion: {datetime.today()}'
-print(commit_message)
-try:
-    repo.git.commit('-m', commit_message)
-    print(repo.heads.master)
-    print(repo.remotes.origin.url)
+if len(files)>1:
+    commit_message = f'Actualizacion: {datetime.today()}'
+    print(commit_message)
+    try:
+        repo.git.commit('-m', commit_message)
+        print(repo.heads.master)
+        print(repo.remotes.origin.url)
 
-#    os.system('git push origin master')
-    print(subprocess.run(["git", "push", 'origin', 'master'], capture_output=True))
+    #    os.system('git push origin master')
+        print(subprocess.run(["git", "push", 'origin', 'master'], capture_output=True))
 
-#    repo.remotes.origin.push(f'{repo.heads.master}')
-#    ssh_cmd = 'ssh -i id_rsa'
-#    with repo.git.custom_environment(GIT_SSH_COMMAND=ssh_cmd):
-#        repo.remotes.origin.push(f'{repo.heads.master}')
+    #    repo.remotes.origin.push(f'{repo.heads.master}')
+    #    ssh_cmd = 'ssh -i id_rsa'
+    #    with repo.git.custom_environment(GIT_SSH_COMMAND=ssh_cmd):
+    #        repo.remotes.origin.push(f'{repo.heads.master}')
 
-except ValueError:
-    print(f'Error al subir los archivos al repositorio: {ValueError}')
-    
-print("Finish push data")
+    except ValueError:
+        print(f'Error al subir los archivos al repositorio: {ValueError}')
+
+    print("Finish push data")
