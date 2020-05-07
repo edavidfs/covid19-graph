@@ -114,11 +114,13 @@ mexico_df = data_for_country('Mexico')
 colombia_df = data_for_country('Colombia')
 cuba_df = data_for_country('Cuba')
 chile_df = data_for_country('Chile')
+venezuela_df = data_for_country('Venezuela')
+bolivia_df = data_for_country('Bolivia')
 
 
-titles = ['España', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile']
-files = ['Espana', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile']
-data = [spain_df, italia_df, china_df, francia_df, germany_df, eeuu_df, uk_df, argentina_df, peru_df,mexico_df, colombia_df, cuba_df, chile_df]
+titles = ['España', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile', 'Venezuela', 'Bolivia']
+files = ['Espana', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile','Venezuela', 'Bolivia']
+data = [spain_df, italia_df, china_df, francia_df, germany_df, eeuu_df, uk_df, argentina_df, peru_df,mexico_df, colombia_df, cuba_df, chile_df, venezuela_df, bolivia_df]
 
 max_y = 990000
 
