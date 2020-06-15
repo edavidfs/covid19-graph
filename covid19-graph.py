@@ -8,7 +8,7 @@ import numpy as np
 import pycountry
 import pathlib
 from matplotlib.animation import FuncAnimation
-from matplotlib.ticker import ScalarFormatter, LogFormatter, MultipleLocator
+from matplotlib.ticker import ScalarFormatter, LogFormatter, MultipleLocator, StrMethodFormatter, NullFormatter
 from unicodedata import normalize
 from datetime import datetime
 from time import sleep
@@ -123,10 +123,11 @@ titles = ['España', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Ar
 files = ['Espana', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile','Venezuela', 'Bolivia','Brasil']
 data = [spain_df, italia_df, china_df, francia_df, germany_df, eeuu_df, uk_df, argentina_df, peru_df,mexico_df, colombia_df, cuba_df, chile_df, venezuela_df, bolivia_df, brasil_df]
 
-max_y = 990000
+max_y = 3000000
 
 pais_id = 0
 for country_df in data:
+    
     fig = plt.figure(figsize=(6,10), dpi=100)
     ax = fig.add_subplot(1, 1, 1)
 
@@ -139,17 +140,21 @@ for country_df in data:
     ax.set_ylabel('Casos Totales')
     ax.set_yscale('log')
     ax.set_ylim(1, max_y)
-    ax.yaxis.set_major_formatter(ScalarFormatter())
+    #ax.yaxis.set_major_formatter(ScalarFormatter())
     ax.xaxis.set_major_formatter(ScalarFormatter())
+    
+    ax.yaxis.set_major_formatter(StrMethodFormatter('{x:.0f}'))
+    ax.yaxis.set_minor_formatter(NullFormatter())
 
     #set major ticks format
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     
-    ax.xaxis.set_minor_formatter(mdates.DateFormatter('%d'))
+    #ax.xaxis.set_minor_formatter(mdates.DateFormatter('%d'))
+    ax.xaxis.set_minor_formatter(NullFormatter())
     ax.xaxis.set_minor_locator(mdates.WeekdayLocator())
     xax = ax.get_xaxis()
-    xax.set_tick_params(which='major', pad=15)
+    xax.set_tick_params(which='major', pad=10)
 
     
     ax.legend(loc='best')
@@ -163,16 +168,17 @@ for country_df in data:
                    ))
     ax2 = ax.twinx()
     ax2.set_yscale('linear')
-    ax2.set_ylim(1,2500)
+    ax2.set_ylim(1,3000)
     ax2.set_ylabel('Casos Diarios')
     
     ax2.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax2.xaxis.set_major_locator(mdates.MonthLocator())
     
     ax2.xaxis.set_minor_formatter(mdates.DateFormatter('%d'))
-    ax2.xaxis.set_minor_locator(mdates.WeekdayLocator())
+    #ax2.xaxis.set_minor_locator(mdates.WeekdayLocator())
+    ax2.xaxis.set_minor_formatter(NullFormatter())
     xax2 = ax2.get_xaxis()
-    xax2.set_tick_params(which='major', pad=15)
+    xax2.set_tick_params(which='major', pad=10)
     
 #    #country_df[['Muertos_por_dia']].plot(ax=ax2,linestyle='dashed', color='#D62728')
     ax2.bar(x=country_df.index, height=country_df['Muertos_por_dia'], label='Muertos por dia', color='#D62728', alpha=0.5)
