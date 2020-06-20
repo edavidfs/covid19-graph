@@ -418,11 +418,7 @@ except:
 repo = git.Repo(f"{CURRENT_PATH}/")
 print(repo.is_dirty())  # check the dirty state
 repo.untracked_files
-#print(len(repo.remotes))
-#print(repo.remotes)
-#print(repo.index)
-#print(repo)
-#print(repo.index.diff(None)) # diff with the working copy
+
 
 files = repo.git.diff(None, name_only=True)
 if files:
@@ -436,16 +432,7 @@ if len(files)>1:
         repo.git.commit('-m', commit_message)
         print(repo.heads.master)
         print(repo.remotes.origin.url)
-#        print(subprocess.run(['pwd'], capture_output=True))
-#        print(subprocess.run(['cd', CURRENT_PATH,'/'], capture_output=True))
-#        print(subprocess.run(['pwd'], capture_output=True))
-#        print(subprocess.run(['ls'], capture_output=True))
         print(subprocess.run(["git","-C",CURRENT_PATH, "push", 'origin', 'master'], capture_output=True))
-
-    #    repo.remotes.origin.push(f'{repo.heads.master}')
-    #    ssh_cmd = 'ssh -i id_rsa'
-    #    with repo.git.custom_environment(GIT_SSH_COMMAND=ssh_cmd):
-    #        repo.remotes.origin.push(f'{repo.heads.master}')
 
     except ValueError:
         print(f'Error al subir los archivos al repositorio: {ValueError}')
