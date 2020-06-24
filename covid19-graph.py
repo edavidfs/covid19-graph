@@ -206,7 +206,7 @@ for country_df in data:
     xax2.set_tick_params(which='major', pad=10)
     
 #    #country_df[['Muertos_por_dia']].plot(ax=ax2,linestyle='dashed', color='#D62728')
-    ax2.bar(x=country_df.index, height=country_df['Muertos_por_dia'], label='Muertos por dia', color='#D62728', alpha=0.5)
+    ax2.bar(x=country_df.index, height=country_df['Muertos_por_dia'], label='Fallecidos por dia', color='#D62728', alpha=0.5)
 ##    country_df.plot.bar(y='Muertos_por_dia',color='#D62728')
     
     lines, labels = ax.get_legend_handles_labels()
