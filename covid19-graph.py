@@ -121,6 +121,7 @@ brasil_df = data_for_country('Brazil')
 costarica_df = data_for_country('Costa Rica')
 ecuador_df = data_for_country('Ecuador')
 elsalvador_df = data_for_country('El Salvador')
+guatemala_df = data_for_country('Guatemala')
 honduras_df = data_for_country('Honduras')
 nicaragua_df = data_for_country('Nicaragua')
 panama_df = data_for_country('Panama')
@@ -129,8 +130,6 @@ puertorico_df = data_for_country('Puerto Rico')
 repdomunicana_df = data_for_country('Dominican Republic')
 uruguay_df = data_for_country('Uruguay')
 
-display(spain_df.head())
-display(repdomunicana_df.tail())
 
 titles = ['España', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina',
           'Peru', 'Mexico', 'Colombia','Cuba', 'Chile', 'Venezuela', 'Bolivia', 'Brasil',
