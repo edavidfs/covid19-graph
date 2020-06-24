@@ -101,6 +101,7 @@ df_deadths = pd.read_csv(url_deadths)
 df_recovereds = pd.read_csv(url_recovereds)
 #df_ccaa = pd.read_csv(url_ccaa, skipfooter=1, encoding="iso8859_15")
 
+
 spain_df = data_for_country('Spain')
 italia_df = data_for_country('Italy')
 china_df = data_for_country('China')
@@ -117,11 +118,36 @@ chile_df = data_for_country('Chile')
 venezuela_df = data_for_country('Venezuela')
 bolivia_df = data_for_country('Bolivia')
 brasil_df = data_for_country('Brazil')
+costarica_df = data_for_country('Costa Rica')
+ecuador_df = data_for_country('Ecuador')
+elsalvador_df = data_for_country('El Salvador')
+honduras_df = data_for_country('Honduras')
+nicaragua_df = data_for_country('Nicaragua')
+panama_df = data_for_country('Panama')
+paraguay_df = data_for_country('Paraguay')
+puertorico_df = data_for_country('Puerto Rico')
+repdomunicana_df = data_for_country('Dominican Republic')
+uruguay_df = data_for_country('Uruguay')
 
+display(spain_df.head())
+display(repdomunicana_df.tail())
 
-titles = ['España', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile', 'Venezuela', 'Bolivia', 'Brasil']
-files = ['Espana', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina', 'Peru', 'Mexico', 'Colombia','Cuba', 'Chile','Venezuela', 'Bolivia','Brasil']
-data = [spain_df, italia_df, china_df, francia_df, germany_df, eeuu_df, uk_df, argentina_df, peru_df,mexico_df, colombia_df, cuba_df, chile_df, venezuela_df, bolivia_df, brasil_df]
+titles = ['España', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina',
+          'Peru', 'Mexico', 'Colombia','Cuba', 'Chile', 'Venezuela', 'Bolivia', 'Brasil',
+          'Costa Rica', 'Ecuador', 'El Salvador', 'Guatemala', 'Honduras','Nicaragua',
+          'Panama', 'Paraguay', 'Puerto Rico', 'Republica Dominicana', 'Ururguay'
+         ]
+files = ['Espana', 'Italia', 'China', 'Francia', 'Alemania', 'EEUU', 'UK', 'Argentina',
+         'Peru', 'Mexico', 'Colombia','Cuba', 'Chile','Venezuela', 'Bolivia','Brasil',
+         'Costa_Rica', 'Ecuador', 'El_Salvador', 'Guatemala', 'Honduras', 'Nicaragua',
+         'Panama','Paraguay', 'Puerto Rico', 'Republica Dominicana', 'Ururguay'
+        ]
+data = [spain_df, italia_df, china_df, francia_df, germany_df, eeuu_df, uk_df, argentina_df, 
+        peru_df,mexico_df, colombia_df, cuba_df, chile_df, venezuela_df, bolivia_df, brasil_df,
+        costarica_df, ecuador_df, elsalvador_df, guatemala_df, honduras_df, nicaragua_df,
+        panama_df, paraguay_df, puertorico_df, repdomunicana_df, uruguay_df,
+       ]
+
 
 max_y = 3000000
 
